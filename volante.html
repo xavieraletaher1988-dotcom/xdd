@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volante Berahass</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .flyer {
+    width: 800px;
+    height: 1100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    background: #0f1d12;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP HERO ── */
+  .hero {
+    position: relative;
+    height: 420px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.55) saturate(1.1);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(15,29,18,0.15) 0%,
+      rgba(15,29,18,0.0) 40%,
+      rgba(15,29,18,0.95) 100%
+    );
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 32px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    background: #cda63e;
+    color: #0f1d12;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    border-radius: 6px;
+    line-height: 1.2;
+  }
+
+  .logo-mark span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #0f1d12;
+    opacity: 0.75;
+  }
+
+  .badge-colombia {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: rgba(205,166,62,0.15);
+    border: 1px solid rgba(205,166,62,0.5);
+    color: #cda63e;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-headline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 40px 36px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #cda63e;
+    margin-bottom: 10px;
+  }
+
+  .hero-title {
+    font-size: 68px;
+    font-weight: 900;
+    line-height: 0.95;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title .highlight {
+    color: #cda63e;
+  }
+
+  /* ── DIVIDER LINE ── */
+  .gold-line {
+    height: 3px;
+    background: linear-gradient(90deg, #cda63e 0%, rgba(205,166,62,0.0) 100%);
+    flex-shrink: 0;
+  }
+
+  /* ── BODY ── */
+  .body {
+    flex: 1;
+    padding: 36px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* Tagline */
+  .tagline {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .tagline-bar {
+    width: 4px;
+    height: 52px;
+    background: #cda63e;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .tagline p {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline p strong {
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /* Benefits */
+  .benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .benefit {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: background .2s;
+  }
+
+  .benefit-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .benefit-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
+
+  .benefit-text span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.3;
+  }
+
+  /* CTA strip */
+  .cta-strip {
+    background: #cda63e;
+    border-radius: 14px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .cta-strip p {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1d12;
+    line-height: 1.3;
+  }
+
+  .cta-strip p span {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  .cta-btn {
+    background: #0f1d12;
+    color: #cda63e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+  }
+
+  .contact-item .icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(205,166,62,0.12);
+    border: 1px solid rgba(205,166,62,0.25);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .qr-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .qr-wrap {
+    width: 90px;
+    height: 90px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qr-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .qr-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* process pills - subtle bottom row */
+  .process-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(205,166,62,0.8);
+    background: rgba(205,166,62,0.08);
+    border: 1px solid rgba(205,166,62,0.2);
+    padding: 5px 12px;
+    border-radius: 50px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .flyer { width: 100%; height: 100vh; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img
+      class="hero-img"
+      src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=900&q=80"
+      alt="Aguacate Hass"
+      onerror="this.style.background='#1a3320'"
+    >
+    <div class="hero-overlay"></div>
+
+    <div class="hero-logo">
+      <div class="logo-mark">
+        Be<br>ra<span>HASS</span>
+      </div>
+    </div>
+
+    <div class="badge-colombia">🇨🇴 Colombia Premium</div>
+
+    <div class="hero-headline">
+      <div class="hero-eyebrow">Aceite de Aguacate Hass Refinado</div>
+      <div class="hero-title">
+        El Oro<br><span class="highlight">Verde</span><br>de Colombia
+      </div>
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- Tagline -->
+    <div class="tagline">
+      <div class="tagline-bar"></div>
+      <p><strong>Cambia tu aceite, cambia tu vida.</strong><br>
+        Extraccion en frio. Pureza total.<br>Sabor que transforma cada plato.</p>
+    </div>
+
+    <!-- Benefits -->
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">💚</div>
+        <div class="benefit-text">
+          <strong>Rico en Omega 9</strong>
+          <span>Cuida tu corazon y reduce el colesterol</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🔥</div>
+        <div class="benefit-text">
+          <strong>Alto punto de humo</strong>
+          <span>Ideal para freir, saltear y asar</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">✨</div>
+        <div class="benefit-text">
+          <strong>Sin aditivos</strong>
+          <span>100% puro, sin conservantes ni mezclas</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🌿</div>
+        <div class="benefit-text">
+          <strong>Aguacate Hass</strong>
+          <span>La variedad mas rica en aceites saludables</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-strip">
+      <p>
+        Pide tu botella hoy
+        <span>Envios a todo Colombia • Precio mayorista disponible</span>
+      </p>
+      <div class="cta-btn">Contactanos →</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="icon">🌐</div>
+            berahass.co
+          </div>
+          <div class="contact-item">
+            <div class="icon">📱</div>
+            @berahass_sas
+          </div>
+          <div class="contact-item">
+            <div class="icon">📞</div>
+            +57 315 099 5529
+          </div>
+          <div class="contact-item">
+            <div class="icon">✉️</div>
+            ventas@berahass.com
+          </div>
+        </div>
+
+        <div class="process-row">
+          <div class="pill">Inspeccion y seleccion</div>
+          <div class="pill">Centrifugacion en frio</div>
+          <div class="pill">Filtrado y envasado</div>
+        </div>
+      </div>
+
+      <div class="qr-block">
+        <div class="qr-wrap">
+          <!-- QR placeholder - reemplazar con imagen del QR real -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <rect width="100" height="100" fill="white"/>
+            <!-- QR simulado -->
+            <rect x="5" y="5" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+            <rect x="13" y="13" width="19" height="19" fill="#000"/>
+            <rect x="60" y="5" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+            <rect x="68" y="13" width="19" height="19" fill="#000"/>
+            <rect x="5" y="60" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+            <rect x="13" y="68" width="19" height="19" fill="#000"/>
+            <rect x="60" y="60" width="8" height="8" fill="#000"/>
+            <rect x="72" y="60" width="8" height="8" fill="#000"/>
+            <rect x="84" y="60" width="8" height="8" fill="#000"/>
+            <rect x="60" y="72" width="8" height="8" fill="#000"/>
+            <rect x="84" y="72" width="8" height="8" fill="#000"/>
+            <rect x="60" y="84" width="8" height="8" fill="#000"/>
+            <rect x="72" y="84" width="8" height="8" fill="#000"/>
+            <rect x="84" y="84" width="8" height="8" fill="#000"/>
+          </svg>
+        </div>
+        <div class="qr-label">Escanea y ordena</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
