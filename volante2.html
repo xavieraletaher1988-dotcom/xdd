@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berahass — Del Campo a Tu Mesa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  /* ═══════════════════════════════
+     FLYER WRAPPER
+  ═══════════════════════════════ */
+  .flyer {
+    width: 800px;
+    position: relative;
+    overflow: hidden;
+    background: #0f1d12;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+  }
+
+  /* ── Franja bandera Colombia ── */
+  .colombia-flag {
+    display: flex;
+    height: 10px;
+    flex-shrink: 0;
+  }
+  .flag-y { flex: 2; background: #FCD116; }
+  .flag-b { flex: 1; background: #003087; }
+  .flag-r { flex: 1; background: #CE1126; }
+
+  /* ═══════════════════════════════
+     SECCIÓN 1 — HERO CULTIVO
+  ═══════════════════════════════ */
+  .hero {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+    filter: saturate(1.15) brightness(0.75);
+  }
+
+  /* Overlay gradiente: de transparente arriba → oscuro abajo */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(10,25,12,0.25) 0%,
+        rgba(10,25,12,0.10) 35%,
+        rgba(10,25,12,0.85) 80%,
+        rgba(10,25,12,1.00) 100%
+      );
+  }
+
+  /* Logo top-left */
+  .hero-logo {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    width: 90px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 10px;
+    padding: 6px 8px;
+  }
+  .hero-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Badge Colombia top-right */
+  .hero-badge {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    background: rgba(252,209,22,0.15);
+    border: 1.5px solid #FCD116;
+    color: #FCD116;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Headline centrado sobre imagen */
+  .hero-copy {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 48px 44px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #FCD116;
+    margin-bottom: 14px;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 76px;
+    font-weight: 900;
+    line-height: 0.92;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: #cda63e;
+  }
+
+  .hero-sub {
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .hero-sub span {
+    color: rgba(255,255,255,0.35);
+    margin: 0 8px;
+  }
+
+  /* ═══════════════════════════════
+     SECCIÓN 2 — FRANJA DORADA
+  ═══════════════════════════════ */
+  .mid-section {
+    background: linear-gradient(135deg, #1a3320 0%, #214f2b 100%);
+    padding: 44px 48px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Detalle decorativo */
+  .mid-section::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(205,166,62,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .mid-text {
+    flex: 1;
+  }
+
+  .mid-label {
+    display: inline-block;
+    background: #cda63e;
+    color: #0f1d12;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .mid-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .mid-quote em {
+    color: #cda63e;
+    font-style: italic;
+  }
+
+  .mid-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  /* Aguacate image right */
+  .mid-avocado {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(205,166,62,0.4);
+    box-shadow: 0 0 40px rgba(205,166,62,0.15);
+  }
+
+  .mid-avocado img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.2);
+  }
+
+  /* ═══════════════════════════════
+     SECCIÓN 3 — BENEFICIOS
+  ═══════════════════════════════ */
+  .benefits-section {
+    background: #0f1d12;
+    padding: 36px 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-top: 1px solid rgba(205,166,62,0.15);
+    border-bottom: 1px solid rgba(205,166,62,0.15);
+  }
+
+  .benefit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .benefit-icon-ring {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(205,166,62,0.35);
+    background: rgba(205,166,62,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .benefit-card strong {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+  }
+
+  .benefit-card p {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+
+  /* ═══════════════════════════════
+     SECCIÓN 4 — FOOTER PRODUCTO
+  ═══════════════════════════════ */
+  .footer-section {
+    background: linear-gradient(180deg, #0f1d12 0%, #0a1510 100%);
+    padding: 36px 48px 32px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  /* Producto */
+  .product-img-wrap {
+    flex-shrink: 0;
+    width: 120px;
+    filter: drop-shadow(0 12px 32px rgba(205,166,62,0.25));
+  }
+  .product-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Info CTA */
+  .footer-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cta-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .cta-text em {
+    color: #cda63e;
+    font-style: italic;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #cda63e;
+    color: #0f1d12;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 6px;
+    align-self: flex-start;
+  }
+
+  /* Contacto */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+    margin-top: 2px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .contact-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #cda63e;
+    flex-shrink: 0;
+  }
+
+  /* QR */
+  .qr-block {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .qr-frame {
+    width: 88px;
+    height: 88px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qr-frame svg { width: 100%; height: 100%; }
+
+  .qr-caption {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+  }
+
+  /* ═══════════════════════════════
+     FRANJA FINAL Colombia
+  ═══════════════════════════════ */
+  .bottom-stripe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #0a1510;
+    padding: 10px 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .bottom-stripe p {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .bottom-stripe .dot-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #cda63e;
+    opacity: 0.5;
+  }
+
+  @media print {
+    body { background: white; padding: 0; margin: 0; }
+    .flyer { width: 100%; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <!-- FRANJA BANDERA -->
+  <div class="colombia-flag">
+    <div class="flag-y"></div>
+    <div class="flag-b"></div>
+    <div class="flag-r"></div>
+  </div>
+
+  <!-- ══ SECCIÓN 1: HERO ══ -->
+  <div class="hero">
+    <img class="hero-bg" src="cultivo-panorama.jpg" alt="Cultivo de Aguacate Hass Colombia">
+    <div class="hero-overlay"></div>
+
+    <!-- Logo -->
+    <div class="hero-logo">
+      <img src="logo-berahass.png" alt="Berahass Logo">
+    </div>
+
+    <!-- Badge -->
+    <div class="hero-badge">Hecho en Colombia 🇨🇴</div>
+
+    <!-- Copy -->
+    <div class="hero-copy">
+      <div class="hero-eyebrow">Aceite de Aguacate Hass · Refinado · Extracción en Frío</div>
+      <div class="hero-headline">
+        Del Campo<br>a <em>Tu Mesa</em>
+      </div>
+      <div class="hero-sub">
+        Aguacate Hass
+        <span>·</span>
+        Tierra Colombiana
+        <span>·</span>
+        Pureza Total
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECCIÓN 2: FRANJA MEDIA ══ -->
+  <div class="mid-section">
+    <div class="mid-text">
+      <div class="mid-label">El secreto del campo colombiano</div>
+      <div class="mid-quote">
+        El <em>oro líquido</em> que nació<br>entre montañas colombianas
+      </div>
+      <p class="mid-desc">
+        Cultivado en las tierras fértiles de Colombia, nuestro aguacate Hass
+        se convierte en el aceite más puro que puede llegar a tu cocina.
+        Sin mezclas. Sin aditivos. Solo naturaleza.
+      </p>
+    </div>
+    <div class="mid-avocado">
+      <img src="aguacate-hass-2.jpg" alt="Aguacate Hass">
+    </div>
+  </div>
+
+  <!-- ══ SECCIÓN 3: BENEFICIOS ══ -->
+  <div class="benefits-section">
+    <div class="benefit-card">
+      <div class="benefit-icon-ring">💚</div>
+      <strong>Rico en Omega 9</strong>
+      <p>Cuida tu corazón y reduce el colesterol malo</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon-ring">🔥</div>
+      <strong>Alto punto de humo</strong>
+      <p>Perfecto para freír, asar y saltear sin dañar el aceite</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon-ring">✨</div>
+      <strong>100% Puro</strong>
+      <p>Sin conservantes, sin mezclas, directo del aguacate Hass</p>
+    </div>
+  </div>
+
+  <!-- ══ SECCIÓN 4: FOOTER PRODUCTO ══ -->
+  <div class="footer-section">
+
+    <div class="product-img-wrap">
+      <img src="refinado-clean.png" alt="Aceite Berahass Refinado">
+    </div>
+
+    <div class="footer-info">
+      <div class="cta-text">
+        Pídelo hoy —<br><em>envíos a todo Colombia</em>
+      </div>
+      <div class="cta-btn">Contáctanos Ahora →</div>
+      <div class="contact-grid">
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          berahass.co
+        </div>
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          +57 315 099 5529
+        </div>
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          @berahass_sas
+        </div>
+        <div class="contact-row">
+          <div class="contact-dot"></div>
+          ventas@berahass.com
+        </div>
+      </div>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-frame">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" fill="white"/>
+          <rect x="5" y="5" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+          <rect x="13" y="13" width="19" height="19" fill="#000"/>
+          <rect x="60" y="5" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+          <rect x="68" y="13" width="19" height="19" fill="#000"/>
+          <rect x="5" y="60" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+          <rect x="13" y="68" width="19" height="19" fill="#000"/>
+          <rect x="60" y="60" width="8" height="8" fill="#000"/>
+          <rect x="72" y="60" width="8" height="8" fill="#000"/>
+          <rect x="84" y="60" width="8" height="8" fill="#000"/>
+          <rect x="60" y="72" width="8" height="8" fill="#000"/>
+          <rect x="84" y="72" width="8" height="8" fill="#000"/>
+          <rect x="60" y="84" width="8" height="8" fill="#000"/>
+          <rect x="72" y="84" width="8" height="8" fill="#000"/>
+          <rect x="84" y="84" width="8" height="8" fill="#000"/>
+        </svg>
+      </div>
+      <div class="qr-caption">Escanea<br>y ordena</div>
+    </div>
+
+  </div>
+
+  <!-- FRANJA INFERIOR -->
+  <div class="bottom-stripe">
+    <p>Berahass SAS</p>
+    <div class="dot-sep"></div>
+    <p>Aceite de Aguacate Hass Refinado</p>
+    <div class="dot-sep"></div>
+    <p>Colombia</p>
+  </div>
+
+</div>
+
+</body>
+</html>
