@@ -27,14 +27,14 @@ function toB64(file, mime) {
     args: ['--no-sandbox','--disable-setuid-sandbox']
   });
   const page = await browser.newPage();
-  await page.setViewport({ width: 794, height: 1122 });
+  await page.setViewport({ width: 559, height: 794 });
   await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 15000 });
   await new Promise(r => setTimeout(r, 1200));
 
   await page.pdf({
     path: path.resolve(__dirname, 'volante-berahass.pdf'),
-    width: '794px',
-    height: '1122px',
+    width: '559px',
+    height: '794px',
     printBackground: true,
     margin: { top: 0, right: 0, bottom: 0, left: 0 },
     pageRanges: '1',

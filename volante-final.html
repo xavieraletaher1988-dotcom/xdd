@@ -2,272 +2,219 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Berahass — Volante Macrorueda</title>
+<title>Berahass — Macrorueda 2026</title>
 <style>
-  @page { size: 794px 1122px; margin: 0; }
+  @page { size: 559px 794px; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html {
-    width: 794px;
-    height: 1122px;
-    overflow: hidden;
-  }
-
-  body {
-    width: 794px;
-    height: 1122px;
+  html, body {
+    width: 559px;
+    height: 794px;
     overflow: hidden;
     background: #0d1a10;
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
-    display: flex;
-    flex-direction: column;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+  body { display: flex; flex-direction: column; }
 
   /* ── BANDERA ── */
-  .flag { display: flex; height: 7px; flex-shrink: 0; }
+  .flag { display: flex; height: 5px; flex-shrink: 0; }
   .fy { flex: 2; background: #FCD116; }
   .fb { flex: 1; background: #003087; }
   .fr { flex: 1; background: #CE1126; }
 
-  /* ── HEADER 72px ── */
+  /* ── HEADER  52px ── */
   .header {
-    height: 72px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
+    height: 52px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px;
     background: #0a1510;
     border-bottom: 1px solid rgba(205,166,62,0.25);
   }
-  .logo { display: flex; align-items: center; gap: 13px; }
+  .logo { display: flex; align-items: center; gap: 10px; }
   .logo-box { position: relative; }
   .logo-rows { line-height: 0.82; }
   .logo-r { display: flex; align-items: flex-end; }
-  .lt { font-size: 26px; font-weight: 900; color: #fff; font-family: Arial Black, Arial, sans-serif; }
-  .l-dot { width: 8px; height: 8px; border-radius: 50%; background: #CE1126;
-            position: absolute; top: -3px; left: 3px; }
-  .l-blue { width: 9px; height: 9px; background: #003087; border-radius: 1px;
-             margin-left: 1px; margin-bottom: 2px; flex-shrink: 0; }
-  .l-yel { width: 9px; height: 13px; background: #FCD116; border-radius: 1px;
-            flex-shrink: 0; margin-top: -2px; }
-  .l-hass { font-size: 7.5px; font-weight: 700; letter-spacing: 0.4em;
-             color: rgba(255,255,255,0.5); margin-top: 2px; }
-  .logo-info { border-left: 2px solid rgba(205,166,62,0.4); padding-left: 13px; }
-  .logo-info strong { display: block; font-size: 12.5px; font-weight: 700; color: #fff; }
-  .logo-info span { font-size: 10.5px; color: rgba(255,255,255,0.4); }
+  .lt { font-size: 19px; font-weight: 900; color: #fff; font-family: Arial Black, Arial, sans-serif; }
+  .l-dot { width: 6px; height: 6px; border-radius: 50%; background: #CE1126;
+            position: absolute; top: -2px; left: 2px; }
+  .l-blue { width: 7px; height: 7px; background: #003087; border-radius: 1px;
+             margin-left: 1px; margin-bottom: 1px; flex-shrink: 0; }
+  .l-yel { width: 7px; height: 10px; background: #FCD116; border-radius: 1px;
+            flex-shrink: 0; margin-top: -1px; }
+  .l-hass { font-size: 6px; font-weight: 700; letter-spacing: 0.35em;
+             color: rgba(255,255,255,0.5); margin-top: 1px; }
+  .logo-info { border-left: 2px solid rgba(205,166,62,0.4); padding-left: 9px; }
+  .logo-info strong { display: block; font-size: 9.5px; font-weight: 700; color: #fff; }
+  .logo-info span { font-size: 7.5px; color: rgba(255,255,255,0.4); }
 
-  .hdr-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+  .hdr-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
   .ev-badge {
     background: linear-gradient(135deg, #cda63e, #ddb94a);
-    color: #0a1510; font-size: 9px; font-weight: 800;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 5px 13px; border-radius: 4px;
+    color: #0a1510; font-size: 7px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 3px;
   }
-  .co-tag { font-size: 9.5px; color: rgba(255,255,255,0.38); letter-spacing: 0.06em; }
+  .co-tag { font-size: 7px; color: rgba(255,255,255,0.38); letter-spacing: 0.05em; }
 
-  /* ── HERO 315px ── */
+  /* ── HERO  198px ── */
   .hero {
-    height: 315px;
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-    background: #0d1a10;
+    height: 198px; flex-shrink: 0;
+    position: relative; overflow: hidden; background: #0d1a10;
   }
   .hero-img {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
-    object-fit: cover; object-position: center 58%;
-    filter: saturate(1.3) brightness(0.52);
+    object-fit: cover; object-position: center 40%;
+    filter: saturate(1.3) brightness(0.6);
   }
-  /* Left dark gradient so text is readable, right stays photo */
   .hero-grad {
     position: absolute; inset: 0;
     background:
-      linear-gradient(95deg, rgba(10,21,16,0.97) 0%, rgba(10,21,16,0.88) 42%, rgba(10,21,16,0.2) 70%, rgba(10,21,16,0.0) 100%),
-      linear-gradient(180deg, rgba(10,21,16,0.25) 0%, rgba(10,21,16,0) 30%, rgba(10,21,16,0.6) 90%, rgba(10,21,16,0.95) 100%);
+      linear-gradient(95deg, rgba(10,21,16,0.96) 0%, rgba(10,21,16,0.82) 44%, rgba(10,21,16,0.1) 100%),
+      linear-gradient(180deg, rgba(10,21,16,0.2) 0%, rgba(10,21,16,0) 30%, rgba(10,21,16,0.8) 100%);
   }
-  /* Text left side */
   .hero-copy {
-    position: absolute;
-    top: 0; bottom: 0; left: 0;
-    width: 55%;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 24px 0 24px 30px;
-    z-index: 2;
+    position: absolute; top: 0; bottom: 0; left: 0;
+    width: 58%; display: flex; flex-direction: column;
+    justify-content: center; padding: 16px 0 16px 20px; z-index: 2;
   }
   .h-kicker {
-    display: flex; align-items: center; gap: 9px; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 7px; margin-bottom: 8px;
   }
-  .h-kicker-bar { width: 24px; height: 2px; background: #cda63e; flex-shrink: 0; }
-  .h-kicker span {
-    font-size: 8.5px; font-weight: 700; letter-spacing: 0.28em;
-    text-transform: uppercase; color: #cda63e;
-  }
+  .h-kicker-bar { width: 18px; height: 1.5px; background: #cda63e; flex-shrink: 0; }
+  .h-kicker span { font-size: 6.5px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: #cda63e; }
   .h-h1 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 54px; font-weight: 700; line-height: 0.9;
-    letter-spacing: -0.01em; color: #fff; margin-bottom: 15px;
+    font-size: 38px; font-weight: 700; line-height: 0.9;
+    color: #fff; margin-bottom: 10px;
   }
   .h-h1 em { font-style: italic; color: #cda63e; }
-  .h-body {
-    font-size: 11.5px; line-height: 1.62; color: rgba(255,255,255,0.55);
-    max-width: 310px; margin-bottom: 18px;
-  }
-  .h-chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .h-body { font-size: 8.5px; line-height: 1.55; color: rgba(255,255,255,0.52); margin-bottom: 12px; }
+  .h-chips { display: flex; gap: 5px; flex-wrap: wrap; }
   .chip {
-    font-size: 8px; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 4px 11px; border-radius: 50px;
-    border: 1px solid rgba(205,166,62,0.35);
-    color: rgba(255,255,255,0.65); background: rgba(205,166,62,0.07);
+    font-size: 6px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 50px;
+    border: 1px solid rgba(205,166,62,0.35); color: rgba(255,255,255,0.65);
+    background: rgba(205,166,62,0.07);
   }
-
-  /* Stats right side — no backdrop-filter (buggy in headless) */
   .hero-stats {
-    position: absolute; right: 22px; bottom: 22px;
-    display: flex; flex-direction: column; gap: 7px; align-items: flex-end;
-    z-index: 2;
+    position: absolute; right: 14px; bottom: 14px;
+    display: flex; flex-direction: column; gap: 5px; z-index: 2;
   }
   .hstat {
-    background: rgba(10,21,16,0.88);
-    border: 1px solid rgba(205,166,62,0.35);
-    padding: 7px 15px; border-radius: 8px; text-align: right;
-    min-width: 130px;
+    background: rgba(10,21,16,0.9); border: 1px solid rgba(205,166,62,0.35);
+    padding: 5px 11px; border-radius: 6px; text-align: right; min-width: 100px;
   }
-  .hstat b {
-    display: block; font-family: Georgia, serif; font-size: 19px;
-    font-weight: 700; color: #cda63e; line-height: 1;
-  }
-  .hstat span { display: block; font-size: 7.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+  .hstat b { display: block; font-family: Georgia, serif; font-size: 14px; font-weight: 700; color: #cda63e; line-height: 1; }
+  .hstat span { display: block; font-size: 5.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
 
-  /* ── PRODUCTS 416px ── */
+  /* ── PRODUCTOS  300px ── */
   .products {
-    flex-shrink: 0;
+    height: 300px; flex-shrink: 0;
     display: flex;
-    height: 416px;
     border-top: 1px solid rgba(205,166,62,0.12);
     background: #0d1a10;
   }
   .prod {
-    flex: 1;
-    display: flex; flex-direction: column; align-items: center;
-    padding: 20px 18px 16px;
-    position: relative;
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    padding: 14px 12px 10px; position: relative;
   }
   .prod:first-child {
     border-right: 1px solid rgba(255,255,255,0.06);
     background: rgba(205,166,62,0.03);
   }
   .p-crown {
-    display: inline-flex; align-items: center; gap: 4px;
+    display: inline-flex; align-items: center; gap: 3px;
     background: #cda63e; color: #0a1510;
-    font-size: 7px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
-    padding: 3px 11px; border-radius: 50px; margin-bottom: 10px;
+    font-size: 6px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 50px; margin-bottom: 8px;
   }
   .p-crown-alt {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
     color: rgba(255,255,255,0.55);
   }
-  .p-bottle {
-    height: 168px; width: auto;
-    filter: drop-shadow(0 10px 26px rgba(0,0,0,0.65));
+  /* Bottle container — fixed height, centered */
+  .p-bottle-wrap {
+    height: 140px; width: 100%;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
+  }
+  .p-bottle {
+    max-height: 138px; max-width: 90px; width: auto; height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.65));
   }
   .p-name {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: 23px; font-weight: 700; color: #fff;
-    margin-top: 10px; margin-bottom: 2px;
+    font-size: 16px; font-weight: 700; color: #fff;
+    margin-top: 6px; margin-bottom: 1px;
   }
-  .p-sub {
-    font-size: 8.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-    color: #cda63e; margin-bottom: 13px;
-  }
-  .p-attrs { width: 100%; display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
-  .at {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 11px; color: rgba(255,255,255,0.52);
-  }
-  /* Gold bullet using ::before on span */
-  .at::before {
-    content: '●';
-    color: #cda63e;
-    font-size: 6px;
-    flex-shrink: 0;
-    line-height: 1.8;
-  }
+  .p-sub { font-size: 6.5px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #cda63e; margin-bottom: 8px; }
+  .p-attrs { width: 100%; display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+  .at { display: flex; align-items: center; gap: 5px; font-size: 8px; color: rgba(255,255,255,0.52); }
+  .at::before { content: '●'; color: #cda63e; font-size: 5px; flex-shrink: 0; line-height: 1.6; }
   .p-vol {
-    font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+    font-size: 8px; font-weight: 700; letter-spacing: 0.1em;
     color: rgba(255,255,255,0.28);
-    border: 1px solid rgba(255,255,255,0.1); padding: 3px 13px; border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1); padding: 3px 10px; border-radius: 50px;
+    margin-top: auto;
   }
 
-  /* ── BENEFITS 92px ── */
+  /* ── BENEFICIOS  60px ── */
   .benefits {
-    flex-shrink: 0;
-    height: 92px;
+    height: 60px; flex-shrink: 0;
     background: linear-gradient(90deg, #122918, #1b3d22, #122918);
     display: flex; align-items: center;
     border-top: 1px solid rgba(205,166,62,0.18);
     border-bottom: 1px solid rgba(205,166,62,0.18);
   }
-  .ben { flex: 1; display: flex; align-items: center; justify-content: center; gap: 9px; padding: 0 8px; }
+  .ben { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 5px; }
   .ben + .ben { border-left: 1px solid rgba(255,255,255,0.06); }
-  .ben-ico { font-size: 24px; line-height: 1; flex-shrink: 0; }
-  .ben-text strong { display: block; font-size: 11.5px; font-weight: 700; color: #fff; line-height: 1.2; }
-  .ben-text span { font-size: 9.5px; color: rgba(255,255,255,0.38); }
+  .ben-ico { font-size: 16px; line-height: 1; flex-shrink: 0; }
+  .ben-text strong { display: block; font-size: 8px; font-weight: 700; color: #fff; line-height: 1.2; }
+  .ben-text span { font-size: 6.5px; color: rgba(255,255,255,0.38); }
 
-  /* ── FOOTER explicit height: 1122-7-72-315-416-92-7 = 213px ── */
+  /* ── FOOTER fills remaining space ── */
   .footer {
-    height: 213px;
-    flex-shrink: 0;
+    flex: 1; min-height: 0; flex-shrink: 0;
     background: #091210;
     display: flex; align-items: center;
-    padding: 0 28px; gap: 20px;
+    padding: 0 18px; gap: 14px;
     border-top: 1px solid rgba(255,255,255,0.06);
   }
   .ft-photo {
-    width: 96px; height: 96px; border-radius: 50%; overflow: hidden;
-    border: 2.5px solid rgba(205,166,62,0.4);
-    box-shadow: 0 0 28px rgba(205,166,62,0.12);
-    flex-shrink: 0;
+    width: 68px; height: 68px; border-radius: 50%; overflow: hidden;
+    border: 2px solid rgba(205,166,62,0.4);
+    box-shadow: 0 0 20px rgba(205,166,62,0.12); flex-shrink: 0;
   }
   .ft-photo img { width: 100%; height: 100%; object-fit: cover; }
-
   .ft-info { flex: 1; }
-  .ft-h2 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 21px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 11px;
-  }
+  .ft-h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 14.5px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px; }
   .ft-h2 em { font-style: italic; color: #cda63e; }
-  .ft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 18px; }
-  .fc { display: flex; align-items: center; gap: 6px; font-size: 10.5px; color: rgba(255,255,255,0.48); }
-  .fc::before { content: '●'; color: #cda63e; font-size: 5px; flex-shrink: 0; }
-
-  .ft-vsep { width: 1px; height: 80px; background: rgba(255,255,255,0.07); flex-shrink: 0; }
-
+  .ft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 12px; }
+  .fc { display: flex; align-items: center; gap: 5px; font-size: 8px; color: rgba(255,255,255,0.48); }
+  .fc::before { content: '●'; color: #cda63e; font-size: 4px; flex-shrink: 0; }
+  .ft-vsep { width: 1px; height: 60px; background: rgba(255,255,255,0.07); flex-shrink: 0; }
   .ft-btn {
     flex-shrink: 0;
     background: linear-gradient(135deg, #cda63e, #ddb94a);
-    color: #0a1510; font-size: 10px; font-weight: 800;
+    color: #0a1510; font-size: 8px; font-weight: 800;
     letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 12px 20px; border-radius: 7px; text-align: center; line-height: 1.4;
-    box-shadow: 0 4px 18px rgba(205,166,62,0.22);
+    padding: 9px 14px; border-radius: 6px; text-align: center; line-height: 1.4;
+    box-shadow: 0 3px 14px rgba(205,166,62,0.22);
   }
-  .ft-btn small { display: block; font-size: 7.5px; font-weight: 600; letter-spacing: 0.06em; opacity: 0.7; margin-top: 3px; }
-
-  .ft-qr { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-  .qr-box { width: 80px; height: 80px; background: #fff; border-radius: 10px; padding: 5px; }
+  .ft-btn small { display: block; font-size: 6px; font-weight: 600; letter-spacing: 0.05em; opacity: 0.7; margin-top: 2px; }
+  .ft-qr { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .qr-box { width: 60px; height: 60px; background: #fff; border-radius: 8px; padding: 4px; }
   .qr-box svg { width: 100%; height: 100%; }
-  .qr-cap { font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.2); text-align: center; }
+  .qr-cap { font-size: 5.5px; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.2); text-align: center; }
 </style>
 </head>
 <body>
 
-<!-- BANDERA TOP -->
 <div class="flag"><div class="fy"></div><div class="fb"></div><div class="fr"></div></div>
 
 <!-- HEADER -->
@@ -288,14 +235,14 @@
     </div>
   </div>
   <div class="hdr-right">
-    <div class="ev-badge">✦ Macrorueda 2025 ✦</div>
-    <div class="co-tag">🇨🇴 &nbsp;Cultivado y procesado en Colombia</div>
+    <div class="ev-badge">✦ Macrorueda 2026 ✦</div>
+    <div class="co-tag">🇨🇴 Cultivado y procesado en Colombia</div>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <img class="hero-img" src="aguacate-hass-2.jpg" alt="Cultivo de Aguacate Hass en los Andes colombianos">
+  <img class="hero-img" src="cultivo-panorama.jpg" alt="Cultivo Aguacate Hass Colombia">
   <div class="hero-grad"></div>
   <div class="hero-copy">
     <div class="h-kicker">
@@ -303,7 +250,7 @@
       <span>El aceite que transforma tu cocina</span>
     </div>
     <h1 class="h-h1">El <em>Oro</em><br>Liquido de<br>Colombia</h1>
-    <p class="h-body">Extraido en frio de los mejores aguacates Hass de los Andes colombianos. Pureza total, sabor excepcional, beneficios comprobados.</p>
+    <p class="h-body">Extraido en frio de los mejores aguacates Hass de los Andes. Pureza total, sabor excepcional.</p>
     <div class="h-chips">
       <div class="chip">Extraccion en Frio</div>
       <div class="chip">Sin Aditivos</div>
@@ -312,8 +259,8 @@
   </div>
   <div class="hero-stats">
     <div class="hstat"><b>270°C</b><span>Punto de Humo</span></div>
-    <div class="hstat"><b>Omega 3·6·9</b><span>Acidos grasos esenciales</span></div>
-    <div class="hstat"><b>250 ml</b><span>Presentacion oficial</span></div>
+    <div class="hstat"><b>Omega 3·6·9</b><span>Acidos Grasos</span></div>
+    <div class="hstat"><b>250 ml</b><span>Presentacion</span></div>
   </div>
 </div>
 
@@ -322,7 +269,9 @@
 
   <div class="prod">
     <div class="p-crown">★ Mas Vendido</div>
-    <img class="p-bottle" src="refinado-clean.png" alt="Extra Virgen">
+    <div class="p-bottle-wrap">
+      <img class="p-bottle" src="refinado-clean.png" alt="Aceite Extra Virgen Berahass">
+    </div>
     <div class="p-name">Extra Virgen</div>
     <div class="p-sub">100% Puro · Sin Refinar</div>
     <div class="p-attrs">
@@ -330,22 +279,24 @@
       <div class="at">Fitoesteroles y Magnesio</div>
       <div class="at">Fosforo, Potasio y Calcio</div>
       <div class="at">Sabor intenso a aguacate Hass</div>
-      <div class="at">Ideal para ensaladas y finishing</div>
+      <div class="at">Ideal: ensaladas y finishing</div>
     </div>
     <div class="p-vol">250 ML</div>
   </div>
 
   <div class="prod">
     <div class="p-crown p-crown-alt">Premium</div>
-    <img class="p-bottle" src="garrafa-clean.png" alt="Refinado">
+    <div class="p-bottle-wrap">
+      <img class="p-bottle" src="garrafa-clean.png" alt="Aceite Refinado Berahass">
+    </div>
     <div class="p-name">Refinado</div>
-    <div class="p-sub">Proceso de Refinacion · Alta Pureza</div>
+    <div class="p-sub">Refinacion · Alta Pureza</div>
     <div class="p-attrs">
       <div class="at">Vitamina E concentrada</div>
       <div class="at">Fitoesteroles naturales</div>
       <div class="at">Acido oleico y Omega 3-6-9</div>
       <div class="at">Sabor suave y neutro</div>
-      <div class="at">Ideal para freir y cocinar diario</div>
+      <div class="at">Ideal: freir y cocinar diario</div>
     </div>
     <div class="p-vol">250 ML</div>
   </div>
@@ -354,33 +305,19 @@
 
 <!-- BENEFICIOS -->
 <div class="benefits">
-  <div class="ben">
-    <div class="ben-ico">💚</div>
-    <div class="ben-text"><strong>Corazon Sano</strong><span>Omega 3, 6 y 9</span></div>
-  </div>
-  <div class="ben">
-    <div class="ben-ico">🔥</div>
-    <div class="ben-text"><strong>Alto Punto de Humo</strong><span>Cocina sin riesgo</span></div>
-  </div>
-  <div class="ben">
-    <div class="ben-ico">🌿</div>
-    <div class="ben-text"><strong>100% Natural</strong><span>Sin conservantes</span></div>
-  </div>
-  <div class="ben">
-    <div class="ben-ico">🏔️</div>
-    <div class="ben-text"><strong>Andes Colombianos</strong><span>Origen garantizado</span></div>
-  </div>
+  <div class="ben"><div class="ben-ico">💚</div><div class="ben-text"><strong>Corazon Sano</strong><span>Omega 3, 6 y 9</span></div></div>
+  <div class="ben"><div class="ben-ico">🔥</div><div class="ben-text"><strong>Alto Pto. Humo</strong><span>270°C</span></div></div>
+  <div class="ben"><div class="ben-ico">🌿</div><div class="ben-text"><strong>100% Natural</strong><span>Sin conservantes</span></div></div>
+  <div class="ben"><div class="ben-ico">🏔️</div><div class="ben-text"><strong>Andes Colombia</strong><span>Origen garantizado</span></div></div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-
   <div class="ft-photo">
     <img src="logo-berahass.png" alt="Aguacate Hass">
   </div>
-
   <div class="ft-info">
-    <div class="ft-h2">Hablemos en la<br><em>Macrorueda 2025</em></div>
+    <div class="ft-h2">Hablemos en la<br><em>Macrorueda 2026</em></div>
     <div class="ft-grid">
       <div class="fc">berahass.co</div>
       <div class="fc">+57 315 099 5529</div>
@@ -388,16 +325,12 @@
       <div class="fc">ventas@berahass.com</div>
     </div>
   </div>
-
   <div class="ft-vsep"></div>
-
   <div class="ft-btn">
     Contactanos<br>Ahora →
     <small>Precio mayorista disponible</small>
   </div>
-
   <div class="ft-vsep"></div>
-
   <div class="ft-qr">
     <div class="qr-box">
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -427,7 +360,6 @@
   </div>
 </div>
 
-<!-- BANDERA BOTTOM -->
 <div class="flag"><div class="fy"></div><div class="fb"></div><div class="fr"></div></div>
 
 </body>
