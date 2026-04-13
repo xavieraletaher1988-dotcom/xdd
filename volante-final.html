@@ -2,817 +2,584 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Berahass — Aceite de Aguacate Hass</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Berahass — Volante Macrorueda</title>
 <style>
-  @page { size: 800px 1200px; margin: 0; }
+  @page { size: 794px 1122px; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background: #0a0a0a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 2rem;
-  }
-
-  .flyer {
-    width: 800px;
-    position: relative;
+    width: 794px;
+    height: 1122px;
     overflow: hidden;
     background: #0d1a10;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
   }
 
-  /* ═════════════════════════════════
-     BANDERA COLOMBIA — TOP
-  ═════════════════════════════════ */
-  .flag-top {
-    display: flex;
-    height: 8px;
-  }
+  /* ══════════════════════════════════
+     BANDERA COLOMBIA
+  ══════════════════════════════════ */
+  .flag { display: flex; height: 7px; }
   .fy { flex: 2; background: #FCD116; }
   .fb { flex: 1; background: #003087; }
   .fr { flex: 1; background: #CE1126; }
 
-  /* ═════════════════════════════════
-     SECCIÓN 1 — HERO AÉREO
-  ═════════════════════════════════ */
-  .hero {
-    position: relative;
-    height: 460px;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 55%;
-    filter: saturate(1.2) brightness(0.65);
-  }
-
-  .hero-gradient {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba(13,26,16,0.5) 0%,
-        rgba(13,26,16,0.0) 25%,
-        rgba(13,26,16,0.0) 50%,
-        rgba(13,26,16,0.95) 90%,
-        rgba(13,26,16,1) 100%
-      );
-  }
-
-  /* Logo CSS recreado */
-  .logo-wrap {
-    position: absolute;
-    top: 28px;
-    left: 36px;
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .logo-row {
-    display: flex;
-    align-items: flex-end;
-    position: relative;
-  }
-
-  .logo-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 30px;
-    font-weight: 900;
-    color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 0.85;
-  }
-
-  .logo-circle {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #CE1126;
-    position: absolute;
-    top: -6px;
-    left: 4px;
-  }
-
-  .logo-yellow {
-    width: 14px;
-    height: 18px;
-    background: #FCD116;
-    border-radius: 2px;
-    margin-left: -5px;
-    margin-bottom: -2px;
-  }
-
-  .logo-blue {
-    width: 14px;
-    height: 14px;
-    background: #003087;
-    border-radius: 2px;
-    margin-left: 1px;
-    margin-bottom: 1px;
-  }
-
-  .logo-hass {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.35em;
-    color: rgba(255,255,255,0.8);
-    margin-top: 3px;
-    margin-left: 2px;
-  }
-
-  /* Badge hecho en Colombia */
-  .badge {
-    position: absolute;
-    top: 28px;
-    right: 36px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 8px 18px;
-    border-radius: 50px;
-  }
-
-  .badge-flag {
-    font-size: 16px;
-  }
-
-  .badge-text {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-
-  /* Headline hero */
-  .hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0 48px 40px;
-    text-align: center;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    background: rgba(205,166,62,0.2);
-    border: 1px solid rgba(205,166,62,0.5);
-    color: #cda63e;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 50px;
-    margin-bottom: 18px;
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 80px;
-    font-weight: 900;
-    color: #ffffff;
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    text-shadow: 0 6px 40px rgba(0,0,0,0.5);
-  }
-
-  .hero-title i {
-    font-style: italic;
-    font-weight: 700;
-    color: #cda63e;
-  }
-
-  .hero-divider {
-    width: 60px;
-    height: 2px;
-    background: #cda63e;
-    margin: 20px auto 16px;
-    border-radius: 1px;
-  }
-
-  .hero-subtitle {
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    font-weight: 400;
-  }
-
-  /* ═════════════════════════════════
-     SECCIÓN 2 — SPLIT: AGUACATES + TEXTO
-  ═════════════════════════════════ */
-  .split-section {
-    display: flex;
-    min-height: 260px;
-    background: #0d1a10;
-  }
-
-  .split-img {
-    width: 42%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .split-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: saturate(1.1) brightness(0.85);
-  }
-
-  .split-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 60%, #0d1a10 100%);
-  }
-
-  .split-text {
-    width: 58%;
-    padding: 36px 44px 36px 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .split-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #cda63e;
-  }
-
-  .split-eyebrow::before {
-    content: '';
-    width: 20px;
-    height: 1.5px;
-    background: #cda63e;
-  }
-
-  .split-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #fff;
-  }
-
-  .split-quote i {
-    color: #cda63e;
-    font-style: italic;
-  }
-
-  .split-body {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-  }
-
-  /* Tree image strip */
-  .tree-strip {
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .tree-strip img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 35%;
-    filter: saturate(1.1) brightness(0.5);
-  }
-
-  .tree-strip-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, #0d1a10 0%, transparent 30%, transparent 70%, #0d1a10 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-  }
-
-  .tree-stat {
-    text-align: center;
-  }
-
-  .tree-stat strong {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 900;
-    color: #cda63e;
-  }
-
-  .tree-stat span {
-    font-size: 9.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .stat-sep {
-    width: 1px;
-    height: 36px;
-    background: rgba(255,255,255,0.15);
-  }
-
-  /* ═════════════════════════════════
-     SECCIÓN 3 — PRODUCTOS
-  ═════════════════════════════════ */
-  .products-section {
-    background: linear-gradient(135deg, #11231a 0%, #162d1c 50%, #11231a 100%);
-    padding: 40px 48px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    border-top: 1px solid rgba(205,166,62,0.1);
-  }
-
-  .product-card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-    padding: 24px 16px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 20px;
-    position: relative;
-  }
-
-  .product-badge {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #cda63e;
-    color: #0d1a10;
-    font-size: 8.5px;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 50px;
-    white-space: nowrap;
-  }
-
-  .product-img {
-    height: 140px;
-    width: auto;
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-  }
-
-  .product-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .product-desc {
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.5;
-  }
-
-  .product-tag {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: #cda63e;
-    background: rgba(205,166,62,0.1);
-    border: 1px solid rgba(205,166,62,0.2);
-    padding: 5px 14px;
-    border-radius: 50px;
-  }
-
-  .product-divider-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-  }
-
-  .product-divider {
-    width: 1px;
-    height: 100px;
-    background: linear-gradient(180deg, transparent, rgba(205,166,62,0.3), transparent);
-  }
-
-  .avocado-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid rgba(205,166,62,0.3);
-  }
-
-  .avocado-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* ═════════════════════════════════
-     SECCIÓN 4 — CTA + CONTACTO
-  ═════════════════════════════════ */
-  .cta-section {
-    background: #0d1a10;
-    padding: 32px 48px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    border-top: 1px solid rgba(205,166,62,0.1);
-  }
-
-  .cta-main {
-    flex: 1;
-  }
-
-  .cta-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.25;
-    margin-bottom: 14px;
-  }
-
-  .cta-headline i {
-    font-style: italic;
-    color: #cda63e;
-  }
-
-  .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #cda63e, #d4b24e);
-    color: #0d1a10;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 14px 30px;
-    border-radius: 8px;
-    margin-bottom: 18px;
-    box-shadow: 0 6px 24px rgba(205,166,62,0.3);
-  }
-
-  .cta-contacts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px 24px;
-  }
-
-  .cta-contact {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .cta-contact-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
-    background: rgba(205,166,62,0.1);
-    border: 1px solid rgba(205,166,62,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    flex-shrink: 0;
-  }
-
-  /* QR */
-  .cta-qr {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .qr-box {
-    width: 96px;
-    height: 96px;
-    background: #fff;
-    border-radius: 14px;
-    padding: 6px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  }
-
-  .qr-box svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .qr-text {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    text-align: center;
-  }
-
-  /* ═════════════════════════════════
-     FOOTER
-  ═════════════════════════════════ */
-  .final-footer {
-    background: #091210;
-    padding: 14px 48px;
+  /* ══════════════════════════════════
+     HEADER — logo + evento
+  ══════════════════════════════════ */
+  .header {
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 0 32px;
+    background: #0a1510;
+    border-bottom: 1px solid rgba(205,166,62,0.2);
   }
 
-  .footer-left {
+  /* Logo CSS */
+  .logo { display: flex; align-items: center; gap: 14px; }
+  .logo-mark { position: relative; line-height: 0.85; }
+  .logo-be, .logo-ra { display: flex; align-items: flex-end; gap: 0; }
+  .logo-t { font-size: 28px; font-weight: 900; color: #fff; font-family: Arial, sans-serif; line-height: 0.85; }
+  .logo-dot { width: 9px; height: 9px; border-radius: 50%; background: #CE1126; position: absolute; top: -4px; left: 3px; }
+  .logo-sq-b { width: 10px; height: 10px; background: #003087; border-radius: 1px; margin-left: 1px; margin-bottom: 2px; }
+  .logo-sq-y { width: 10px; height: 14px; background: #FCD116; border-radius: 1px; margin-top: -1px; }
+  .logo-hass { font-size: 8.5px; font-weight: 600; letter-spacing: 0.35em; color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .logo-tagline { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; border-left: 2px solid rgba(205,166,62,0.4); padding-left: 14px; line-height: 1.4; }
+  .logo-tagline strong { display: block; font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 700; }
+
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+  .event-badge {
+    background: linear-gradient(135deg, #cda63e, #e0ba52);
+    color: #0a1510;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 4px;
+  }
+  .origin-tag {
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
   }
 
-  .footer-pill {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+  /* ══════════════════════════════════
+     HERO — plantación aérea
+  ══════════════════════════════════ */
+  .hero {
+    position: relative;
+    height: 285px;
+    overflow: hidden;
+  }
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    filter: saturate(1.25) brightness(0.55);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(13,26,16,0.92) 0%, rgba(13,26,16,0.5) 50%, rgba(13,26,16,0.1) 100%),
+      linear-gradient(180deg, rgba(13,26,16,0.3) 0%, rgba(13,26,16,0) 40%, rgba(13,26,16,0.85) 100%);
+  }
+  .hero-content {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 62%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px 36px;
+  }
+  .hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .hero-kicker-line { width: 28px; height: 2px; background: #cda63e; }
+  .hero-kicker span {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
+    color: #cda63e;
+  }
+  .hero-h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .hero-h1 em { font-style: italic; color: #cda63e; }
+  .hero-body {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+    max-width: 340px;
+    margin-bottom: 20px;
+  }
+  .hero-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(205,166,62,0.4);
+    color: rgba(255,255,255,0.7);
+    background: rgba(205,166,62,0.08);
+  }
+
+  /* Stats flotando a la derecha del hero */
+  .hero-stats {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .hstat {
+    background: rgba(13,26,16,0.85);
+    border: 1px solid rgba(205,166,62,0.3);
+    backdrop-filter: blur(8px);
+    padding: 7px 16px;
+    border-radius: 8px;
+    text-align: right;
+  }
+  .hstat b {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #cda63e;
+    line-height: 1;
+  }
+  .hstat span { font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ══════════════════════════════════
+     PRODUCTOS — dos botellas
+  ══════════════════════════════════ */
+  .products {
+    display: flex;
+    height: 378px;
+    background: #0d1a10;
+    border-top: 1px solid rgba(205,166,62,0.12);
+  }
+
+  .prod {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 20px 18px;
+    position: relative;
+    transition: background .2s;
+  }
+  .prod:first-child {
+    border-right: 1px solid rgba(255,255,255,0.06);
+    background: rgba(205,166,62,0.04);
+  }
+
+  .prod-crown {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #cda63e;
+    color: #0a1510;
+    font-size: 7.5px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+  }
+  .prod-crown-alt {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6);
+  }
+
+  .prod-bottle {
+    height: 160px;
+    width: auto;
+    filter: drop-shadow(0 12px 28px rgba(0,0,0,0.6));
+    flex-shrink: 0;
+  }
+
+  .prod-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 3px;
+  }
+  .prod-sub {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #cda63e;
+    margin-bottom: 12px;
+  }
+
+  .prod-attrs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  .attr {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+  }
+  .attr-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #cda63e;
+    flex-shrink: 0;
+  }
+
+  .prod-vol {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     color: rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 14px;
     border-radius: 50px;
   }
 
-  .footer-right {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
+  /* Divider vertical center */
+  .prod-divider {
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(205,166,62,0.25), transparent);
+    align-self: stretch;
   }
 
-  /* Flag bottom */
-  .flag-bottom {
+  /* ══════════════════════════════════
+     BENEFICIOS BAR
+  ══════════════════════════════════ */
+  .benefits {
+    height: 78px;
+    background: linear-gradient(90deg, #132b1a, #1a3d22, #132b1a);
     display: flex;
-    height: 5px;
+    align-items: center;
+    border-top: 1px solid rgba(205,166,62,0.15);
+    border-bottom: 1px solid rgba(205,166,62,0.15);
+  }
+  .ben {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .ben + .ben { border-left: 1px solid rgba(255,255,255,0.06); }
+  .ben-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+  .ben-text strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .ben-text span { font-size: 9.5px; color: rgba(255,255,255,0.4); }
+
+  /* ══════════════════════════════════
+     FOOTER CTA
+  ══════════════════════════════════ */
+  .footer {
+    height: 164px;
+    background: #091210;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 24px;
   }
 
-  @media print {
-    body { background: white; padding: 0; margin: 0; }
-    .flyer { width: 100%; box-shadow: none; }
+  /* Avocado photo circle */
+  .footer-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(205,166,62,0.35);
+    flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(205,166,62,0.12);
   }
+  .footer-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .footer-cta { flex: 1; }
+  .footer-h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .footer-h2 i { font-style: italic; color: #cda63e; }
+  .footer-contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 20px;
+  }
+  .fc {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+  }
+  .fc-dot { width: 4px; height: 4px; border-radius: 50%; background: #cda63e; flex-shrink: 0; }
+
+  /* CTA Button */
+  .footer-btn {
+    background: linear-gradient(135deg, #cda63e, #e0ba52);
+    color: #0a1510;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 4px 18px rgba(205,166,62,0.25);
+  }
+  .footer-btn span { display: block; font-size: 8px; font-weight: 600; letter-spacing: 0.08em; opacity: 0.7; margin-top: 2px; }
+
+  /* QR */
+  .footer-qr { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .qr-frame {
+    width: 76px;
+    height: 76px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  .qr-frame svg { width: 100%; height: 100%; }
+  .qr-cap { font-size: 7.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.2); text-align: center; }
+
+  .footer-sep { width: 1px; height: 80px; background: rgba(255,255,255,0.07); flex-shrink: 0; }
 </style>
 </head>
 <body>
 
-<div class="flyer">
+<!-- BANDERA TOP -->
+<div class="flag"><div class="fy"></div><div class="fb"></div><div class="fr"></div></div>
 
-  <!-- ── BANDERA TOP ── -->
-  <div class="flag-top">
-    <div class="fy"></div>
-    <div class="fb"></div>
-    <div class="fr"></div>
-  </div>
-
-  <!-- ══════════════════════════
-       HERO — Vista aérea del cultivo
-  ══════════════════════════ -->
-  <div class="hero">
-    <img class="hero-bg" src="aguacate-hass-2.jpg" alt="Cultivo de Aguacate Hass - Colombia">
-    <div class="hero-gradient"></div>
-
-    <!-- Logo Bera Hass (CSS) -->
-    <div class="logo-wrap">
-      <div class="logo-row" style="margin-bottom:-2px;">
-        <div class="logo-circle"></div>
-        <span class="logo-text">Be</span>
-      </div>
-      <div class="logo-row">
-        <span class="logo-text">ra</span>
-        <div class="logo-blue"></div>
-      </div>
-      <div class="logo-row" style="margin-top:-2px;">
-        <div class="logo-yellow"></div>
-      </div>
-      <div class="logo-hass">HASS</div>
-    </div>
-
-    <!-- Badge -->
-    <div class="badge">
-      <span class="badge-flag">🇨🇴</span>
-      <span class="badge-text">Hecho en Colombia</span>
-    </div>
-
-    <!-- Headline -->
-    <div class="hero-content">
-      <div class="hero-tag">Aceite de Aguacate Hass</div>
-      <h1 class="hero-title">
-        Del Campo<br>a <i>Tu Mesa</i>
-      </h1>
-      <div class="hero-divider"></div>
-      <p class="hero-subtitle">
-        Extraccion en Frio &nbsp;·&nbsp; 100% Puro &nbsp;·&nbsp; Sin Aditivos
-      </p>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════
-       SPLIT — Aguacates + Texto
-  ══════════════════════════ -->
-  <div class="split-section">
-    <div class="split-img">
-      <img src="logo-berahass.png" alt="Aguacate Hass fresco">
-      <div class="split-img-overlay"></div>
-    </div>
-    <div class="split-text">
-      <div class="split-eyebrow">Nuestra esencia</div>
-      <h2 class="split-quote">
-        El <i>oro liquido</i> que nacio entre<br>montanas colombianas
-      </h2>
-      <p class="split-body">
-        Cultivado en las tierras fertiles del Eje Cafetero y los Andes colombianos,
-        nuestro aguacate Hass se transforma en el aceite mas puro y natural
-        que puede llegar a tu cocina. De la tierra a la botella, sin intermediarios.
-      </p>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════
-       FRANJA ESTADÍSTICAS sobre imagen del cultivo
-  ══════════════════════════ -->
-  <div class="tree-strip">
-    <img src="cultivo-panorama.jpg" alt="Arboles de aguacate">
-    <div class="tree-strip-overlay">
-      <div class="tree-stat">
-        <strong>100%</strong>
-        <span>Puro y Natural</span>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="tree-stat">
-        <strong>270°C</strong>
-        <span>Punto de Humo</span>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="tree-stat">
-        <strong>Omega</strong>
-        <span>3 · 6 · 9</span>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="tree-stat">
-        <strong>250ml</strong>
-        <span>Presentacion</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════
-       PRODUCTOS — Ambas botellas
-  ══════════════════════════ -->
-  <div class="products-section">
-
-    <!-- Refinado -->
-    <div class="product-card">
-      <div class="product-badge">Mas Vendido</div>
-      <img class="product-img" src="garrafa-clean.png" alt="Aceite Refinado">
-      <div class="product-name">Refinado</div>
-      <p class="product-desc">
-        Sabor suave y neutro. Ideal para<br>
-        freir, hornear y cocinar a diario.
-      </p>
-      <div class="product-tag">Alto punto de humo</div>
-    </div>
-
-    <!-- Separador con icono aguacate -->
-    <div class="product-divider-wrap">
-      <div class="product-divider"></div>
-      <div class="avocado-icon">
-        <img src="extravirgen-clean.png" alt="Aguacate">
-      </div>
-      <div class="product-divider"></div>
-    </div>
-
-    <!-- Extra Virgen -->
-    <div class="product-card">
-      <div class="product-badge">Premium</div>
-      <img class="product-img" src="refinado-clean.png" alt="Aceite Extra Virgen">
-      <div class="product-name">Extra Virgen</div>
-      <p class="product-desc">
-        Sabor intenso a aguacate. Perfecto<br>
-        para ensaladas, aderezos y finishing.
-      </p>
-      <div class="product-tag">Vitaminas A, B, D y E</div>
-    </div>
-
-  </div>
-
-  <!-- ══════════════════════════
-       CTA + CONTACTO
-  ══════════════════════════ -->
-  <div class="cta-section">
-
-    <div class="cta-main">
-      <h3 class="cta-headline">
-        Pidelo hoy —<br><i>envios a todo Colombia</i>
-      </h3>
-      <div class="cta-button">Contactanos Ahora →</div>
-      <div class="cta-contacts">
-        <div class="cta-contact">
-          <div class="cta-contact-icon">🌐</div>
-          berahass.co
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <div class="logo-mark">
+      <div style="position:relative;display:inline-block;">
+        <div class="logo-dot"></div>
+        <div class="logo-be">
+          <span class="logo-t">B</span><span class="logo-t">e</span>
         </div>
-        <div class="cta-contact">
-          <div class="cta-contact-icon">📞</div>
-          +57 315 099 5529
+        <div class="logo-ra" style="display:flex;align-items:flex-end;">
+          <span class="logo-t">r</span><span class="logo-t">a</span>
+          <div class="logo-sq-b"></div>
         </div>
-        <div class="cta-contact">
-          <div class="cta-contact-icon">📱</div>
-          @berahass_sas
-        </div>
-        <div class="cta-contact">
-          <div class="cta-contact-icon">✉️</div>
-          ventas@berahass.com
-        </div>
+        <div class="logo-sq-y"></div>
+        <div class="logo-hass">HASS</div>
       </div>
     </div>
-
-    <div class="cta-qr">
-      <div class="qr-box">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="100" height="100" fill="white"/>
-          <rect x="5" y="5" width="35" height="35" fill="none" stroke="#0d1a10" stroke-width="4"/>
-          <rect x="13" y="13" width="19" height="19" fill="#0d1a10"/>
-          <rect x="60" y="5" width="35" height="35" fill="none" stroke="#0d1a10" stroke-width="4"/>
-          <rect x="68" y="13" width="19" height="19" fill="#0d1a10"/>
-          <rect x="5" y="60" width="35" height="35" fill="none" stroke="#0d1a10" stroke-width="4"/>
-          <rect x="13" y="68" width="19" height="19" fill="#0d1a10"/>
-          <rect x="60" y="60" width="8" height="8" fill="#0d1a10"/>
-          <rect x="72" y="60" width="8" height="8" fill="#0d1a10"/>
-          <rect x="84" y="60" width="8" height="8" fill="#0d1a10"/>
-          <rect x="48" y="48" width="4" height="4" fill="#0d1a10"/>
-          <rect x="60" y="72" width="8" height="8" fill="#0d1a10"/>
-          <rect x="84" y="72" width="8" height="8" fill="#0d1a10"/>
-          <rect x="72" y="84" width="8" height="8" fill="#0d1a10"/>
-          <rect x="84" y="84" width="8" height="8" fill="#0d1a10"/>
-          <rect x="48" y="12" width="4" height="10" fill="#0d1a10"/>
-          <rect x="48" y="28" width="4" height="10" fill="#0d1a10"/>
-          <rect x="12" y="48" width="10" height="4" fill="#0d1a10"/>
-          <rect x="28" y="48" width="10" height="4" fill="#0d1a10"/>
-        </svg>
-      </div>
-      <div class="qr-text">Escanea y ordena</div>
+    <div class="logo-tagline">
+      <strong>Berahass SAS</strong>
+      Aceite de Aguacate Hass<br>Colombia
     </div>
+  </div>
+  <div class="header-right">
+    <div class="event-badge">✦ Macrorueda 2025 ✦</div>
+    <div class="origin-tag">🇨🇴 &nbsp;Cultivado y procesado en Colombia</div>
+  </div>
+</div>
 
+<!-- HERO -->
+<div class="hero">
+  <img src="aguacate-hass-2.jpg" alt="Cultivo de Aguacate Hass en los Andes colombianos">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <div class="hero-kicker-line"></div>
+      <span>El aceite que transforma tu cocina</span>
+    </div>
+    <h1 class="hero-h1">
+      El <em>Oro</em><br>Liquido de<br>Colombia
+    </h1>
+    <p class="hero-body">
+      Extraido en frio de los mejores aguacates Hass de los Andes colombianos.
+      Pureza total, sabor excepcional, beneficios comprobados para tu salud.
+    </p>
+    <div class="hero-chips">
+      <div class="chip">Extraccion en Frio</div>
+      <div class="chip">Sin Aditivos</div>
+      <div class="chip">100% Natural</div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><b>270°C</b><span>Punto de Humo</span></div>
+    <div class="hstat"><b>Omega 3·6·9</b><span>Acidos grasos esenciales</span></div>
+    <div class="hstat"><b>250 ml</b><span>Presentacion</span></div>
+  </div>
+</div>
+
+<!-- PRODUCTOS -->
+<div class="products">
+
+  <!-- Extra Virgen -->
+  <div class="prod">
+    <div class="prod-crown">★ Mas Vendido</div>
+    <img class="prod-bottle" src="refinado-clean.png" alt="Aceite Extra Virgen">
+    <div class="prod-name">Extra Virgen</div>
+    <div class="prod-sub">100% Puro · Sin Refinar</div>
+    <div class="prod-attrs">
+      <div class="attr"><div class="attr-dot"></div>Vitamina A, B1, B2, D y E</div>
+      <div class="attr"><div class="attr-dot"></div>Fitoesteroles y Magnesio</div>
+      <div class="attr"><div class="attr-dot"></div>Fosforo, Potasio y Calcio</div>
+      <div class="attr"><div class="attr-dot"></div>Sabor intenso a aguacate</div>
+      <div class="attr"><div class="attr-dot"></div>Ideal para ensaladas y finishing</div>
+    </div>
+    <div class="prod-vol">250 ML</div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="final-footer">
-    <div class="footer-left">
-      <span class="footer-pill">Inspeccion y Seleccion</span>
-      <span class="footer-pill">Centrifugacion en Frio</span>
-      <span class="footer-pill">Filtrado y Envasado</span>
-    </div>
-    <span class="footer-right">Berahass SAS · Colombia</span>
-  </div>
+  <div class="prod-divider"></div>
 
-  <!-- ── BANDERA BOTTOM ── -->
-  <div class="flag-bottom">
-    <div class="fy"></div>
-    <div class="fb"></div>
-    <div class="fr"></div>
+  <!-- Refinado -->
+  <div class="prod">
+    <div class="prod-crown prod-crown-alt">Premium</div>
+    <img class="prod-bottle" src="garrafa-clean.png" alt="Aceite Refinado">
+    <div class="prod-name">Refinado</div>
+    <div class="prod-sub">Proceso de Refinacion · Alta Pureza</div>
+    <div class="prod-attrs">
+      <div class="attr"><div class="attr-dot"></div>Vitamina E concentrada</div>
+      <div class="attr"><div class="attr-dot"></div>Fitoesteroles naturales</div>
+      <div class="attr"><div class="attr-dot"></div>Acido oleico y Omega 3-6-9</div>
+      <div class="attr"><div class="attr-dot"></div>Sabor suave y neutro</div>
+      <div class="attr"><div class="attr-dot"></div>Ideal para freir y cocinar</div>
+    </div>
+    <div class="prod-vol">250 ML</div>
   </div>
 
 </div>
+
+<!-- BENEFICIOS -->
+<div class="benefits">
+  <div class="ben">
+    <div class="ben-icon">💚</div>
+    <div class="ben-text">
+      <strong>Corazon Sano</strong>
+      <span>Omega 3, 6 y 9</span>
+    </div>
+  </div>
+  <div class="ben">
+    <div class="ben-icon">🔥</div>
+    <div class="ben-text">
+      <strong>Alto Punto Humo</strong>
+      <span>Cocina sin riesgo</span>
+    </div>
+  </div>
+  <div class="ben">
+    <div class="ben-icon">🌿</div>
+    <div class="ben-text">
+      <strong>100% Natural</strong>
+      <span>Sin conservantes</span>
+    </div>
+  </div>
+  <div class="ben">
+    <div class="ben-icon">🏔️</div>
+    <div class="ben-text">
+      <strong>Andes Colombianos</strong>
+      <span>Origen garantizado</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-photo">
+    <img src="logo-berahass.png" alt="Aguacate Hass">
+  </div>
+
+  <div class="footer-cta">
+    <div class="footer-h2">
+      Hablemos en la<br><i>Macrorueda 2025</i>
+    </div>
+    <div class="footer-contacts">
+      <div class="fc"><div class="fc-dot"></div>berahass.co</div>
+      <div class="fc"><div class="fc-dot"></div>+57 315 099 5529</div>
+      <div class="fc"><div class="fc-dot"></div>@berahass_sas</div>
+      <div class="fc"><div class="fc-dot"></div>ventas@berahass.com</div>
+    </div>
+  </div>
+
+  <div class="footer-sep"></div>
+
+  <div class="footer-btn">
+    Contactanos<br>Ahora →
+    <span>Precio mayorista disponible</span>
+  </div>
+
+  <div class="footer-sep"></div>
+
+  <div class="footer-qr">
+    <div class="qr-frame">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="white"/>
+        <rect x="5" y="5" width="35" height="35" fill="none" stroke="#0a1510" stroke-width="4"/>
+        <rect x="13" y="13" width="19" height="19" fill="#0a1510"/>
+        <rect x="60" y="5" width="35" height="35" fill="none" stroke="#0a1510" stroke-width="4"/>
+        <rect x="68" y="13" width="19" height="19" fill="#0a1510"/>
+        <rect x="5" y="60" width="35" height="35" fill="none" stroke="#0a1510" stroke-width="4"/>
+        <rect x="13" y="68" width="19" height="19" fill="#0a1510"/>
+        <rect x="60" y="60" width="8" height="8" fill="#0a1510"/>
+        <rect x="72" y="60" width="8" height="8" fill="#0a1510"/>
+        <rect x="84" y="60" width="8" height="8" fill="#0a1510"/>
+        <rect x="60" y="72" width="8" height="8" fill="#0a1510"/>
+        <rect x="84" y="72" width="8" height="8" fill="#0a1510"/>
+        <rect x="60" y="84" width="8" height="8" fill="#0a1510"/>
+        <rect x="72" y="84" width="8" height="8" fill="#0a1510"/>
+        <rect x="84" y="84" width="8" height="8" fill="#0a1510"/>
+        <rect x="48" y="5" width="4" height="8" fill="#0a1510"/>
+        <rect x="48" y="22" width="4" height="8" fill="#0a1510"/>
+        <rect x="5" y="48" width="8" height="4" fill="#0a1510"/>
+        <rect x="22" y="48" width="8" height="4" fill="#0a1510"/>
+        <rect x="48" y="48" width="5" height="5" fill="#0a1510"/>
+      </svg>
+    </div>
+    <div class="qr-cap">Escanea<br>y Ordena</div>
+  </div>
+</div>
+
+<!-- BANDERA BOTTOM -->
+<div class="flag"><div class="fy"></div><div class="fb"></div><div class="fr"></div></div>
 
 </body>
 </html>
